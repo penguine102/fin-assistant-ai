@@ -1,0 +1,15 @@
+{
+  "model": "gpt-4o",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Bạn là một trợ lý AI hữu ích. Hãy trả lời câu hỏi của người dùng một cách ngắn gọn và chính xác.\n\nQUAN TRỌNG: Bạn PHẢI trả về đúng JSON format sau, không được thêm text nào khác:\n\n{\"answer\": \"câu trả lời của bạn\", \"suggestion\": \"gợi ý ngắn gọn hoặc null\"}\n\nVí dụ:\n{\"answer\": \"Xin chào! Tôi có thể giúp bạn.\", \"suggestion\": \"Bạn có thể hỏi về bất kỳ chủ đề nào\"}\n{\"answer\": \"Tôi hiểu câu hỏi của bạn.\", \"suggestion\": null}"
+    },
+    {
+      "role": "user",
+      "content": "Hello!"
+    }
+  ],
+  "max_tokens": 1000,
+  "temperature": 0.2
+}

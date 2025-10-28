@@ -1,0 +1,247 @@
+/* Chat Sidebar Styles */
+.chat-sidebar {
+  width: 280px;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  transition: width 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.chat-sidebar.collapsed {
+  width: 72px;
+}
+
+.chat-sidebar.collapsed .sidebar-history {
+  display: none;
+}
+
+.chat-sidebar.collapsed .sidebar-toolbar {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  min-height: calc(100vh - 48px);
+  border-bottom: none;
+  padding: 8px 0;
+}
+
+.chat-sidebar.collapsed .toolbar-right {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-sidebar.collapsed .toolbar-left {
+  display: inline-flex;
+}
+
+.chat-sidebar.collapsed .toolbar-center {
+  display: none;
+}
+
+.chat-sidebar.collapsed .sidebar-toolbar .ant-btn {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: inherit;
+  border-bottom: 1px solid #e5e7eb;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 48px;
+}
+
+.sidebar-toolbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #e5e7eb;
+}
+
+.toolbar-left,
+.toolbar-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.toolbar-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.system-title {
+  display: flex;
+  align-items: center;
+  color: #1f2937;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.sidebar-history {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+  height: calc(100vh - 176px); /* Adjusted after removing header */
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sidebar-history-title {
+  color: #b3b8bf;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 16px 8px 16px;
+  margin: 0;
+}
+
+.sidebar-item {
+  cursor: pointer;
+  padding: 12px 16px !important;
+  margin: 0;
+  width: 100%;
+  border-radius: 0;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.sidebar-item.active {
+  background: #e9f8ef;
+  box-shadow: inset 0 0 0 1px #c7f0d2;
+}
+
+.sidebar-item:hover {
+  background: #f5f7fa;
+}
+
+.sidebar-item .ant-list-item {
+  border: none !important;
+  padding: 0 !important;
+}
+
+.sidebar-item .ant-list-item-meta {
+  align-items: flex-start;
+}
+
+.sidebar-item .ant-list-item-meta-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-item .ant-list-item-meta-description {
+  font-size: 9px !important;
+  line-height: 1.2;
+  color: #8a8f96;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toggle-icon {
+  width: 28px;
+  height: 18px;
+  border: 2px solid #c0c4cc;
+  border-radius: 8px;
+  display: inline-flex;
+  position: relative;
+}
+
+.toggle-btn {
+  padding: 4px 6px !important;
+}
+
+.toggle-left,
+.toggle-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  border-right: 2px solid #c0c4cc;
+}
+
+.toggle-right {
+  left: 50%;
+  border-right: 0;
+}
+
+/* Profile Section */
+.sidebar-profile {
+  padding: 16px;
+  border-top: 1px solid #e5e7eb;
+  background: #fafafa;
+}
+
+.profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.profile-trigger:hover {
+  background: #f0f0f0;
+}
+
+.profile-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-email {
+  font-size: 12px;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chat-sidebar.collapsed .sidebar-profile {
+  padding: 16px 8px;
+}
+
+.chat-sidebar.collapsed .profile-trigger {
+  justify-content: center;
+}
