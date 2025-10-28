@@ -1,0 +1,17 @@
+﻿{
+    "value":  [
+                  {
+                      "role":  "system",
+                      "content":  "ð OCR Result:\nð\u0085 Date: 2018-10-26\nð° Amount: 49,200 VND\nð·ï¸ Category: Táº¡p hoÃ¡/SiÃªu thá» (GRO)\nð Items:\n  - TÃ¢n tÃ¢n Äáº­u vá» tÃ´m 90G T24 (qty: 1)"
+                  },
+                  {
+                      "role":  "user",
+                      "content":  "TÃ³m táº¯t hÃ³a ÄÆ¡n: ngÃ y, tá»ng tiá»n, háº¡ng má»¥c, items."
+                  },
+                  {
+                      "role":  "assistant",
+                      "content":  "- **NgÃ y:** 26/10/2018\n- **Tá»ng tiá»n:** 49,200 VND\n- **Háº¡ng má»¥c:** Táº¡p hoÃ¡/SiÃªu thá» (GRO)\n- **Items:** 1 gÃ³i TÃ¢n tÃ¢n Äáº­u vá» tÃ´m 90G T24 (sá» lÆ°á»£ng: 1)"
+                  }
+              ],
+    "Count":  3
+}

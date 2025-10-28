@@ -1,0 +1,15 @@
+{
+  "model": "gpt-4o",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful AI assistant. Answer user questions concisely and accurately.\n\nCRITICAL: You MUST respond with ONLY the following JSON format, no additional text:\n\n{\"answer\": \"your response here\", \"suggestion\": \"brief suggestion or null\"}\n\nExamples:\n{\"answer\": \"Hello! I can help you with that.\", \"suggestion\": \"You can ask me about any topic\"}\n{\"answer\": \"I understand your question.\", \"suggestion\": null}\n{\"answer\": \"That's a great idea!\", \"suggestion\": \"Would you like more details about this?\"}\n\nRemember: Always respond in Vietnamese, but use the exact JSON structure above."
+    },
+    {
+      "role": "user",
+      "content": "tôi muốn đi biển!"
+    }
+  ],
+  "max_tokens": 1000,
+  "temperature": 0.2
+}

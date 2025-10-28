@@ -1,0 +1,218 @@
+{
+  "info": {
+    "name": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "b7a4c7b7-9c9e-4b8a-9b13-2b4c7f3f2f10"
+  },
+  "variable": [
+    { "key": "base", "value": "http://localhost:8000" },
+    { "key": "api_prefix", "value": "/api/v1" },
+    { "key": "user_id", "value": "user_123" },
+    { "key": "session_id", "value": "sess_123" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Root health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/health",
+              "host": ["{{base}}"],
+              "path": ["health"]
+            }
+          }
+        },
+        {
+          "name": "Ping (v1)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}{{api_prefix}}/health/ping",
+              "host": ["{{base}}"],
+              "path": ["{{api_prefix}}", "health", "ping"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "List users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}{{api_prefix}}/users/",
+              "host": ["{{base}}"],
+              "path": ["{{api_prefix}}", "users", ""]
+            }
+          }
+        },
+        {
+          "name": "Create user",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"full_name\": \"John Doe\",\n  \"password\": \"secret123\"\n}"
+            },
+            "url": {
+              "raw": "{{base}}{{api_prefix}}/users/",
+              "host": ["{{base}}"],
+              "path": ["{{api_prefix}}", "users", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "Create session",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base}}{{api_prefix}}/chat/sessions?user_id={{user_id}}",
+              "host": ["{{base}}"],
+              "path": ["{{api_prefix}}", "chat", "sessions"],
+              "query": [
+                { "key": "user_id", "value": "{{user_id}}" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "List sessions by user",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}{{api_prefix}}/chat/sessions?user_id={{user_id}}",
+              "host": ["{{base}}"],
+              "path": ["{{api_prefix}}", "chat", "sessions"],
+              "query": [
+                { "key": "user_id", "value": "{{user_id}}" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get chat history",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}{{api_prefix}}/chat/history?session_id={{session_id}}&limit=20",
+              "host": ["{{base}}"],
+              "path": ["{{api_prefix}}", "chat", "history"],
+              "query": [
+                { "key": "session_id", "value": "{{session_id}}" },
+                { "key": "limit", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Send chat message",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{user_id}}\",\n  \"session_id\": \"{{session_id}}\",\n  \"query\": \"Xin chào!\",\n  \"suggestion\": false\n}"
+            },
+            "url": {
+              "raw": "{{base}}{{api_prefix}}/chat/",
+              "host": ["{{base}}"],
+              "path": ["{{api_prefix}}", "chat", ""]
+            }
+          }
+        },
+        {
+          "name": "Chat mock",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base}}{{api_prefix}}/chat/mock",
+              "host": ["{{base}}"],
+              "path": ["{{api_prefix}}", "chat", "mock"]
+            }
+          }
+        },
+        {
+          "name": "Suggestion",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{user_id}}\",\n  \"session_id\": \"\",\n  \"context\": \"\",\n  \"query\": \"Tôi cần gợi ý\"\n}"
+            },
+            "url": {
+              "raw": "{{base}}{{api_prefix}}/chat/suggestion",
+              "host": ["{{base}}"],
+              "path": ["{{api_prefix}}", "chat", "suggestion"]
+            }
+          }
+        },
+        {
+          "name": "Clear session cache",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base}}{{api_prefix}}/chat/cache/{{session_id}}",
+              "host": ["{{base}}"],
+              "path": ["{{api_prefix}}", "chat", "cache", "{{session_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Cache stats",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}{{api_prefix}}/chat/cache/{{session_id}}/stats",
+              "host": ["{{base}}"],
+              "path": ["{{api_prefix}}", "chat", "cache", "{{session_id}}", "stats"]
+            }
+          }
+        },
+        {
+          "name": "Test AI response format",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}{{api_prefix}}/chat/test/ai-format",
+              "host": ["{{base}}"],
+              "path": ["{{api_prefix}}", "chat", "test", "ai-format"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
